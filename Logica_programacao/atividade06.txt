@@ -1,0 +1,53 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		double resultado = 0;
+		Console.WriteLine("Insira um numero: ");
+		if(double.TryParse(Console.ReadLine(), out double n1)){
+			Console.WriteLine("Insira a operação: ");
+			string op = Console.ReadLine();
+			Console.WriteLine("Insira um outro numero: ");
+			if(double.TryParse(Console.ReadLine(), out double n2)){
+				switch(op){
+				case "+":
+					resultado = n1 + n2;
+					break;
+				case "-":
+					resultado = n1 - n2;
+					break;
+				case "*":
+					resultado = n1 * n2;
+					break;
+				case "/":
+					if(n2 != 0){
+						resultado = n1 / n2;
+						break;
+						
+					}else{
+						Console.WriteLine("Divisão por ZERO");
+						break;
+					}
+					
+				default:
+					Console.WriteLine("Operação inválida!");
+					break;		
+			} 
+			if(n2 != 0){
+					Console.WriteLine(n1 + " " + op + " " + n2 + " = " + resultado);	
+			}
+			
+		}else{
+			Console.WriteLine("Numero invalido!");
+		}
+		
+		}else{
+			Console.WriteLine("Numero invalido!");
+		}
+		
+		
+	}
+	
+}

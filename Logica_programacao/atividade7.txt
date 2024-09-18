@@ -1,0 +1,34 @@
+using System;
+					
+public class Program
+{
+	public static void Main()
+	{
+		double d = 5.44;
+		double e = 6.04;
+		double l = 7.09;
+		double r;
+		
+		Console.WriteLine("Digite:\n 1- para converter de Real para dolar, euro e libra  \n 2- para converter de Dolar para Real \n 3- para converter de Euro para Real  \n 4- para converter de libra para Real");
+		if(int.TryParse(Console.ReadLine(), out int op)){
+			Console.WriteLine("Insira o valor: ");
+			r = double.Parse(Console.ReadLine());
+			switch(op){
+				case 1:
+					Console.WriteLine($"R${r} --- Dolar --- US${Math.Round(r/d, 2)} \nR${r} --- Euro --- €{Math.Round(r/e, 2)} \nR${r} --- Libra --- £{Math.Round(r/l, 2)} \n");
+					break;
+				case 2:
+					Console.WriteLine($"US${d} --- Real --- R${Math.Round(r*d, 2)}");
+					break;
+				case 3:
+					Console.WriteLine($"€{d} --- Real --- R${Math.Round(r*e,2)}");
+					break;
+				case 4:
+					Console.WriteLine($"£{d} --- Real --- R${Math.Round(r*l, 2)}");
+					break;
+					
+			}
+		}else
+		   Console.WriteLine("Operação invalida");
+	}
+}

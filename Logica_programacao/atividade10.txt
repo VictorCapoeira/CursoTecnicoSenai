@@ -1,0 +1,11 @@
+Console.WriteLine("Insira o conteudo(texto, palavra, nome...): ");
+		string bloco = Console.ReadLine();
+		Console.WriteLine("Insira a letra que deseja filtrar: ");
+		char letra = char.Parse(Console.ReadLine());
+		int c = 0;
+		for(int i = 0; i < bloco.Length; i++){
+			if(bloco[i] == letra){
+				c++;
+			}
+		}
+		Console.WriteLine($"A letra {letra} teve um total de {c} vezes!");

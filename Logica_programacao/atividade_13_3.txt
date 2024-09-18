@@ -1,0 +1,48 @@
+using System;
+class HelloWorld {
+	static void Main() {
+		Console.WriteLine("6 dezenas Sorte Mega-Sena - Sorteio de numero!!!!");
+		bool controle = false;
+		do{
+		    Console.WriteLine("Quantos jogos deseja?Min 6, Max 15");
+    		int jogos = int.Parse(Console.ReadLine());
+    		if(jogos >= 6 && jogos <= 15){
+    		    Console.WriteLine("Escolha a quantidade de dezenas: ");
+    		    int deze = int.Parse(Console.ReadLine());
+    			Random rnd = new Random();
+    			string sorteio = "";
+    			
+    			for(int j = 1; j <= jogos; j++) {
+    			    
+    			    
+    				int teste = rnd.Next(1, 61);
+    				
+    				for(int i = 1; i < deze; i++) {
+    					if(i == 1) {
+    					    if(teste < 10)
+    					        sorteio = $"0{teste}";
+    					    else
+    						    sorteio = $"{teste}";
+    					}
+    					teste = rnd.Next(1, 61);
+    					if(teste < 10)
+    					    sorteio += $"-0{teste}";
+    					else
+    					    sorteio += $"-{teste}";
+    				}
+    				
+    				Console.WriteLine("\n Numero da sorte: " + sorteio);
+    				controle = true;
+    				
+    			}
+    		}else{
+    		    Console.WriteLine("Insira uma quantidade de jogos válida(entre 6 a 15)");
+    		}
+		}
+		while(controle == false);
+    		
+		
+
+
+	}
+}

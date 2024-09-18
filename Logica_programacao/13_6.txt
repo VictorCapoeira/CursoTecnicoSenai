@@ -1,0 +1,61 @@
+/******************************************************************************
+
+                            Online C# Compiler.
+                Code, Compile, Run and Debug C# program online.
+Write your code in this editor and press "Run" button to execute it.
+
+*******************************************************************************/
+
+using System;
+class HelloWorld {
+	static void Main() {
+		Console.WriteLine("6 dezenas Sorte Mega-Sena - Sorteio de numero!!!!");
+		bool controle = false;
+		Console.Write("Insira o valor do prêmio: R$");
+		double premio = double.Parse(Console.ReadLine());
+		Console.WriteLine("Quantos jogos deseja?");
+		int jogos = int.Parse(Console.ReadLine());
+
+		do {
+			Console.WriteLine("Escolha a quantidade de dezenas (Min 6, Max 15): ");
+			int deze = int.Parse(Console.ReadLine());
+			if(deze >= 6 && deze <= 15) {
+				Random rnd = new Random();
+				string sorteio = "";
+
+				for(int j = 1; j <= jogos; j++) {
+
+
+					int numeroSorte = rnd.Next(1, 61);
+
+					for(int i = 1; i < deze; i++) {
+						if(i == 1) {
+							if(numeroSorte < 10)
+								sorteio = $"{numeroSorte:D2}";
+							else
+								sorteio = $"{numeroSorte}";
+						}
+						numeroSorte = rnd.Next(1, 61);
+						if(numeroSorte < 10)
+							sorteio += $"-{numeroSorte:D2}";
+						//:D2 acrescentar zero a esquerda. D C) indica a dezena, e depois o numero a quantidade de zero que serC! colocada
+						else
+							sorteio += $"-{numeroSorte}";
+					}
+
+					Console.WriteLine("\n Numero da sorte: " + sorteio);
+					controle = true;
+
+				}
+			} else {
+				Console.WriteLine("Insira uma quantidade de dezenas valida(entre 6 a 15)!");
+			}
+		} while(controle == false);
+		Console.WriteLine($"\n-----------------------Tabela de prêmios--------------------- \n 1° lugar: R${premio*0.75} - 6 Dezenas acertadas \n 2° lugar: R${premio*0.15} - 5 Dezenas acertadas \n 3° lugar: R${premio*0.10} - 4 Dezenas acertadas \n -----------------------Tabela de prêmios--------------------- ");
+
+
+
+
+
+	}
+}

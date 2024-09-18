@@ -1,0 +1,31 @@
+using System;
+class HelloWorld {
+  static void Main() {
+      double resultado = 0;
+      string resultadoUn = "";
+    Console.WriteLine("Conversor de medidas - Metros para: cm, km, mi");
+    Console.WriteLine("Insira a medida em metros: ");
+    if(double.TryParse(Console.ReadLine(), out double metros)){
+        Console.WriteLine("Escolha a unidade de conversão: cm, km, mi");
+        string un = Console.ReadLine();
+        switch(un){
+            case "cm":
+                resultado = metros * 100;
+                resultadoUn = "CM";
+                break;
+            case "km":
+                resultado = metros / 1000;
+                resultadoUn = "KM";
+                break;
+            case "mi":
+                resultado = metros / 1609;
+                resultadoUn = "MI";
+                break;
+        }
+        Console.WriteLine($"Resultado: {Math.Round(resultado,4)} {resultadoUn}");
+    }else{
+        Console.WriteLine("Insira uma medida valida!");
+    }
+    
+  }
+}
